@@ -1,0 +1,10 @@
+[default_config]
+assembler = "gas"
+instruction_set = "mips"
+
+[default_config.opts]
+# Disables the default compiler diagnostics (prevents host 'gcc' from running)
+default_diagnostics = false
+
+# If errors persist, you can turn off diagnostics entirely for this project:
+diagnostics = false
