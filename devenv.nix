@@ -6,7 +6,10 @@
 
   # https://devenv.sh/packages/
   packages = [ 
-    pkgs.git 
+    pkgs.xspim
+    pkgs.asm-lsp
+    pkgs.vimPlugins.nvim-treesitter-parsers.asm
+  
     pkgs.iverilog
     pkgs.verible
     pkgs.vimPlugins.nvim-treesitter-parsers.systemverilog
@@ -23,14 +26,14 @@
 
   # https://devenv.sh/scripts/
   scripts.hello.exec = ''
-    echo "Environment for SystemVerilog using iverlog"
+    echo hello from $GREET
   '';
 
   # https://devenv.sh/basics/
   enterShell = ''
     hello         # Run scripts directly
-    git --version # Use packages
-  '';
+    "Environment loaded successfully with 'spim' and 'iverilog'"
+ '';
 
   # https://devenv.sh/tasks/
   # tasks = {
@@ -41,7 +44,6 @@
   # https://devenv.sh/tests/
   enterTest = ''
     echo "Running tests"
-    git --version | grep --color=auto "${pkgs.git.version}"
   '';
 
   # https://devenv.sh/git-hooks/
