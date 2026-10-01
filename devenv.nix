@@ -1,5 +1,10 @@
 { pkgs, lib, config, inputs, ... }:
 
+let
+  unstable = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz";
+  }) { system = pkgs.system; };
+in
 {
   # https://devenv.sh/basics/
   env.GREET = "devenv";
@@ -13,6 +18,11 @@
     pkgs.iverilog
     pkgs.verible
     pkgs.vimPlugins.nvim-treesitter-parsers.systemverilog
+  
+    unstable.gtkwave
+    pkgs.yosys
+    pkgs.nextpnr-xilinx
+
   ];
 
   # https://devenv.sh/languages/
