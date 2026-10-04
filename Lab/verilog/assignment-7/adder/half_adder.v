@@ -1,6 +1,6 @@
 module half_adder(A, B, S, C);
   input A, B;
-  output S, C;
-  assign S = A ^ B;
-  assign C = A & B;
+  output S;
+  xor (S, A, B);
+  and (C, A, B);
 endmodule
